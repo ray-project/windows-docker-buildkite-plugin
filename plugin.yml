@@ -1,0 +1,8 @@
+name: Windows Docker Adjustment
+description: Resize Docker Storage
+author: https://github.com/ray-project
+configuration:
+  properties:
+    - storage-size-gb:
+      type: number
+  additionalProperties: false
