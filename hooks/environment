@@ -3,7 +3,8 @@ set -x
 STORAGE_SIZE=${BUILDKITE_PLUGIN_WINDOWS_DOCKER_STORAGE_SIZE_GB}
 dockerd_config="C:\ProgramData\docker\config\daemon.json"
 
-if [ ! -f $docker_config ]; then
+# If file not exist, or file is empty, write to it
+if [ ! -f $docker_config || ! -s $docker_config ]; then
   echo "{}" > $dockerd_config
 fi
 
