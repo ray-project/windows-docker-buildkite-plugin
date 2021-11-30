@@ -8,8 +8,9 @@ if [ ! -f $docker_config ] || [ ! -s $docker_config ]; then
   echo "{}" > $dockerd_config
 fi
 
-cat $dockerd_config | jq ". + {\"storage-opts\": [\"size=${STORAGE_SIZE}GB\"]}" > $dockerd_config
-cat $dockerd_config
+cat ${dockerd_config} | jq ". + {\"storage-opts\": [\"size=${STORAGE_SIZE}GB\"]}" > ${dockerd_config}.new
+cat ${dockerd_config}.new
+mv ${dockerd_config}.new ${dockerd_config}
 
 powershell 'Restart-Service docker'
 
