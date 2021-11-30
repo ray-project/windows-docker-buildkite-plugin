@@ -1,4 +1,4 @@
-set -x
+set -xeo pipefail
 
 STORAGE_SIZE=${BUILDKITE_PLUGIN_WINDOWS_DOCKER_STORAGE_SIZE_GB}
 dockerd_config="C:\ProgramData\docker\config\daemon.json"
